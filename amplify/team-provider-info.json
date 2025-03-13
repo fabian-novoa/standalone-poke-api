@@ -13,7 +13,12 @@
     },
     "categories": {
       "auth": {
-        "standalonepokeapiefb1f037": {}
+        "standalonepokeapi5c665c68": {
+          "userPoolId": "us-east-1_zMAODOeNJ",
+          "userPoolName": "standalonepokeapiefb1f037_userpool_efb1f037-dev",
+          "webClientId": "2mi6r7u6117qg51o8i5k0t63gc",
+          "nativeClientId": "1r4p2m44cv2bj4lcuvo1v1a5k"
+        }
       }
     }
   }

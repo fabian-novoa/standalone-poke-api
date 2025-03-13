@@ -1,0 +1,20 @@
+{
+  "authSelections": "userPoolOnly",
+  "resourceName": "standalonepokeapi5c665c68",
+  "serviceType": "imported",
+  "region": "us-east-1",
+  "usernameAttributes": [
+    "email"
+  ],
+  "requiredAttributes": [
+    "email",
+    "nickname"
+  ],
+  "passwordPolicyMinLength": 8,
+  "passwordPolicyCharacters": [],
+  "mfaConfiguration": "OFF",
+  "autoVerifiedAttributes": [
+    "email"
+  ],
+  "mfaTypes": []
+}
