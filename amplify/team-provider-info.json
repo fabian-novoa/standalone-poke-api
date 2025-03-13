@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-standalonepokeapi-dev-3144c-authRole",
+      "UnauthRoleArn": "arn:aws:iam::533267041736:role/amplify-standalonepokeapi-dev-3144c-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::533267041736:role/amplify-standalonepokeapi-dev-3144c-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-standalonepokeapi-dev-3144c-deployment",
+      "UnauthRoleName": "amplify-standalonepokeapi-dev-3144c-unauthRole",
+      "StackName": "amplify-standalonepokeapi-dev-3144c",
+      "StackId": "arn:aws:cloudformation:us-east-1:533267041736:stack/amplify-standalonepokeapi-dev-3144c/2d4314d0-ff8c-11ef-ac1d-0affcc496de3",
+      "AmplifyAppId": "d2thtlu1qg2wsu"
+    },
+    "categories": {
+      "auth": {
+        "standalonepokeapiefb1f037": {}
+      }
+    }
+  }
+}

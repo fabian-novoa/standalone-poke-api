@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { SearchPokemonComponent } from '../../components/search-pokemon/search-pokemon.component';
+import { CognitoService } from '../../shared/services/cognito.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-page',
@@ -19,4 +21,15 @@ import { SearchPokemonComponent } from '../../components/search-pokemon/search-p
     </div>
   `
 })
-export class PokemonPageComponent {}
+export class PokemonPageComponent {
+
+  constructor(private cognitoService: CognitoService, private router: Router, private ngZone: NgZone) {
+    this.navigateToLogin();
+  }
+
+  navigateToLogin(): void {
+    if (!sessionStorage.getItem('session_token')) this.ngZone.run(() => {this.router.navigate(['login'])});
+  }
+
+
+}
