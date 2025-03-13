@@ -33,7 +33,7 @@ steps:
     awsCommand: 's3'
     awsSubCommand: 'sync'
     awsArguments: '.dist/standalone-poke-api/browser s3://azure-pipeline-lab-pokeapi --delete'
-  displayName: :'Upload to S3'
+  displayName: 'Upload to S3'
   
 - task: AWSCLI@1
   inputs:
