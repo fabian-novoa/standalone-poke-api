@@ -57,15 +57,6 @@ export class CognitoService {
     }
   }
 
-  // async  handleSignIn({ username, password }: SignInInput) {
-  //   try {
-  //     const { isSignedIn /* , nextStep */ } = await signIn({ username, password });
-  //     return isSignedIn;
-  //   } catch (error) {
-  //     alert(error);
-  //     return error;
-  //   }
-  // }
 
   async handleSignIn({ username, password }: SignInInput) {
     try {
@@ -73,10 +64,9 @@ export class CognitoService {
       if (isSignedIn) {
         return { success: true }; // SignIn exitoso
       } else {
-        return { success: false, message: 'Usuario o contraseña incorrectos' }; // Fallo de inicio de sesión
-      }
+        return { success: false, message: 'Usuario o contraseña incorrectos' };      }
     } catch (error) {
-      return { success: false, message: error || 'Error al iniciar sesión' }; // Manejo de errores
+      return { success: false, message: error || 'Error al iniciar sesión' };
     }
   }
 

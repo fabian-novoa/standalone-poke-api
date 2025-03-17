@@ -183,6 +183,20 @@ export class AuthenticationComponent {
     }
   }
 
+  async logoutUser(): Promise<void> {
+    try {
+      await this.cognitoService.handleSignOut();
+      sessionStorage.removeItem('session_token');
+      sessionStorage.removeItem('user_id');
+      sessionStorage.removeItem('user_username');
+      
+      this.router.navigate(['/login']);
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  }
+
+
   async assignUserValues(isSignedIn: boolean) {
     if(isSignedIn) {
       const token = await this.cognitoService.currentSession();
@@ -200,47 +214,7 @@ export class AuthenticationComponent {
     } 
 }
   
-  
-  // async validateUser(): Promise<void> {
-  //   const { userEmail, userPassword } = this.userForm.value;
 
-  //   if (userEmail && userPassword) {
-  //     try {
-  //       const user = {
-  //         username: userEmail,
-  //         password: userPassword
-  //       };
-        
-  //       const isSignedIn: any = await this.cognitoService.handleSignIn(user);
-        
-  //       if (isSignedIn) {
-  //         await this.userService.assignUserValues(userEmail);
-          
-  //         this.ngZone.run(() => {
-  //           this.router.navigate(['home']);
-  //         });
-  //       }
-  //     } catch (error) {
-  //       console.error('Error durante el inicio de sesión:', error);
-  //       this.regexMessage = 'Error al iniciar sesión. Verifique sus credenciales.';
-  //     }
-  //   }
-  // }
-
-  // async validateUser(): Promise<void> {
-  //   const { userEmail, userPassword } = this.userForm.value;
-
-  //   if (userEmail && userPassword) {
-  //     const user = {
-  //       username: userEmail,
-  //       password: userPassword
-  //     }
-  //     const isSignedIn: any = await this.cognitoService.handleSignIn(user)
-      
-  //     this.assignUserValues(isSignedIn);
-        
-  //   }
-  // }
   async validateUser(): Promise<void> {
     const { userEmail, userPassword } = this.userForm.value;
   
@@ -253,12 +227,9 @@ export class AuthenticationComponent {
   
       // Verificamos si el inicio de sesión fue exitoso
       if (signInResult.success) {
-        this.assignUserValues(true);  // Asumiendo que 'assignUserValues' maneja los valores del usuario y la sesión
-        // Aquí puedes redirigir a la página principal si todo fue exitoso
+        this.assignUserValues(true); 
       } else {
-        // Si el inicio de sesión falla, muestra un mensaje de error y no procedas con la redirección
         alert(signInResult.message);
-        // No debes hacer redirección ni guardar datos en sessionStorage aquí
       }
     }
   }
